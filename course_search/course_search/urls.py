@@ -17,8 +17,12 @@ Including another URLconf
 # course_search/urls.py
 from django.contrib import admin
 from django.urls import path, include
+from courses import views  # เพิ่มการ import views จากแอป courses
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('courses.urls')),  # เชื่อมโยง URL จากแอป courses
+    path('', views.search_course, name='home'),  # ทำให้ URL '/' เชื่อมโยงไปที่ search_course
+    path('courses/', include('courses.urls')),  # เชื่อมโยง URL ของแอป courses
 ]
+
+

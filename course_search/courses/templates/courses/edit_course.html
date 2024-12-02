@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขข้อมูลรายวิชา</title>
+</head>
+<body>
+    <h1>แก้ไขข้อมูลรายวิชา</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">บันทึกการเปลี่ยนแปลง</button>
+    </form>
+
+    <a href="{% url 'courses:search_course' %}">กลับไปหน้าค้นหา</a>
+</body>
+</html>

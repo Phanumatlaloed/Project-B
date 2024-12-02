@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="th">
+<body>
+    <h1>ค้นหารายวิชา</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">ค้นหา</button>
+    </form>
+
+    {% if courses %}
+        <ul>
+        {% for course in courses %}
+            <li>
+                รหัสวิชา: {{ course.course_code }} - ชื่อวิชา: {{ course.course_name }} 
+                <a href="{% url 'courses:edit_course' id=course.id %}">แก้ไข</a>
+                <a href="{% url 'courses:delete_course' id=course.id %}">ลบ</a>  <!-- เพิ่มลิงค์ลบ -->
+            </td>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
