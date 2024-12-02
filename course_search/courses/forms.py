@@ -1,6 +1,11 @@
 # courses/forms.py
-# courses/forms.py
 from django import forms
+from .models import Course  # Import โมเดล Course
 
 class SearchCourseForm(forms.Form):
-    course_name = forms.CharField(max_length=200, required=False, label='ชื่อวิชา')
+    course_code = forms.CharField(label='รหัสวิชา', max_length=10)
+
+class CourseEditForm(forms.ModelForm):
+    class Meta:
+        model = Course
+        fields = ['course_code', 'course_name']

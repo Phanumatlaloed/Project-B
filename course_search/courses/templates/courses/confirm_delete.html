@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยืนยันการลบรายวิชา</title>
+</head>
+<body>
+    <h1>คุณต้องการลบรายวิชา {{ course.course_name }} (รหัสวิชา: {{ course.course_code }}) ใช่หรือไม่?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">ลบรายวิชานี้</button>
+    </form>
+    
+    <a href="{% url 'courses:search_course' %}">กลับไปหน้าค้นหา</a>
+</body>
+</html>
