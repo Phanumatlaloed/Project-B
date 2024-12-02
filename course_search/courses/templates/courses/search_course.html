@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="th">
+<body>
+    <h1>ค้นหารายวิชาจากรหัสวิชา</h1>
+    
+    <form method="GET">
+        {{ form.as_p }}
+        <button>ค้นหา</button>
+    </form>
+
+    {% if courses %}
+        <h2>ผลการค้นหา</h2>
+        <ul>
+            {% for course in courses %}
+                <li>{{ course.course_code }}: {{ course.course_name }}</li>
+            {% endfor %}
+        </ul>
+    {% elif courses is not none %}
+        <p>ไม่พบวิชาที่ค้นหา</p>
+    {% endif %}
+</body>
+</html>
